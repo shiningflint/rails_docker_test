@@ -86,3 +86,4 @@ production:
   username: postgres
   password:
   host: db
+  url: <%= ENV['DATABASE_URL'] %>
