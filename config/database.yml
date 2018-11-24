@@ -82,8 +82,8 @@ test:
 #
 production:
   <<: *default
-  database: rails_test_app
-  username: postgres
-  password:
+  database: <%= ENV['POSTGRES_DB']%>
+  username: <%= ENV['POSTGRES_USER']%>
+  password: <%= ENV['POSTGRES_PASSWORD']%>
   host: db
   url: <%= ENV['DATABASE_URL'] %>
