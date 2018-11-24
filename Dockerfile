@@ -1,5 +1,5 @@
 FROM ruby:alpine
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apk add --update build-base postgresql-dev tzdata
 RUN gem install rails -v '5.2.1'
 RUN mkdir /app
 WORKDIR /app
