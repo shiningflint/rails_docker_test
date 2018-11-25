@@ -23,4 +23,5 @@ services:
     env_file:
       - ./.env
     environment:
-      DATABASE_URL: postgres://postgres@db
+      - DATABASE_URL=postgres://postgres@db
+      - RAILS_SERVE_STATIC_FILES=true
