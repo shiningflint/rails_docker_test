@@ -22,4 +22,4 @@ services:
     env_file:
       - ./.env
     environment:
-      - DATABASE_URL: postgres://postgres@db
+      DATABASE_URL: postgres://postgres@db
