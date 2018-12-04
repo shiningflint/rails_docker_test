@@ -5,6 +5,5 @@ RUN mkdir /app
 WORKDIR /app
 COPY . /app
 RUN bundle install
-RUN mkdir /app/public/assets
 RUN rake assets:precompile RAILS_ENV=production
 COPY ./public/assets/ /app/public/assets/
