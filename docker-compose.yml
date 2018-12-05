@@ -13,7 +13,8 @@ services:
   web:
     build: .
     command: >
-      bundle exec rails s -p 3000 -b '0.0.0.0' --environment=production
+      sh -c "rake assets:precompile
+      && bundle exec rails s -p 3000 -b '0.0.0.0' --environment=production"
     volumes:
       - .:/app
     ports:
@@ -24,4 +25,5 @@ services:
       - ./.env
     environment:
       - DATABASE_URL=postgres://postgres@db
+        # the one below is a hack, remove this when using nginx
       - RAILS_SERVE_STATIC_FILES=true
