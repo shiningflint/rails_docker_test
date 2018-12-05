@@ -4,5 +4,3 @@ RUN gem install rails -v '5.2.1'
 WORKDIR /app
 COPY . .
 RUN bundle install
-RUN rake assets:precompile RAILS_ENV=production
-COPY ./public/assets/ ./public/assets/
