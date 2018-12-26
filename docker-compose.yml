@@ -2,8 +2,8 @@ version: '3'
 services:
   web:
     build:
-      context: .
-      dockerfile: ./docker/web/Dockerfile
+      context: ./docker/web/
+      dockerfile: Dockerfile
     depends_on:
       - app
     ports:
