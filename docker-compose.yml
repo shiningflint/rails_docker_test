@@ -22,9 +22,6 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
-    command: >
-      sh -c "rake assets:precompile
-      && bundle exec rails s -p 3000 -b '0.0.0.0' --environment=production"
     volumes:
       - .:/app
     ports:
@@ -34,6 +31,6 @@ services:
     env_file:
       - ./.env
     environment:
-      - DATABASE_URL=postgres://postgres@db
+      - DATABASE_URL=postgres://acbw:bananapotato@db
         # the one below is a hack, remove this when using nginx
       - RAILS_SERVE_STATIC_FILES=true
