@@ -7,7 +7,7 @@ services:
     depends_on:
       - app
     ports:
-      - 8080:80
+      - "8080:80"
   db:
     image: postgres:11-alpine
     volumes:
@@ -34,3 +34,4 @@ services:
       - DATABASE_URL=${DATABASE_URL}
         # the one below is a hack, remove this when using nginx
       - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_ENV=production

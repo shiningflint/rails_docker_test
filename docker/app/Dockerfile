@@ -7,4 +7,4 @@ COPY . /app/
 RUN bundle install \
     && rake assets:precompile
 EXPOSE 3000
-CMD ["rails", "server"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
