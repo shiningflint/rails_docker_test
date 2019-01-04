@@ -13,9 +13,9 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: bananapotato
-      POSTGRES_USER: acbw
-      POSTGRES_DB: rails_test_app
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
   app:
@@ -31,6 +31,6 @@ services:
     env_file:
       - ./.env
     environment:
-      - DATABASE_URL=postgres://acbw:bananapotato@db
+      - DATABASE_URL=${DATABASE_URL}
         # the one below is a hack, remove this when using nginx
       - RAILS_SERVE_STATIC_FILES=true
