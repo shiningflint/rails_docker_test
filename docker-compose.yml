@@ -8,6 +8,8 @@ services:
       - app
     ports:
       - "8080:80"
+    volumes:
+      - asset-volume:/var/www/html
   db:
     image: postgres:11-alpine
     volumes:
@@ -22,16 +24,18 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
-    volumes:
-      - .:/app
     ports:
       - "3000:3000"
     depends_on:
       - db
+    volumes:
+      - asset-volume:/app/public
     env_file:
       - ./.env
     environment:
       - DATABASE_URL=${DATABASE_URL}
         # the one below is a hack, remove this when using nginx
-      - RAILS_SERVE_STATIC_FILES=true
+      # - RAILS_SERVE_STATIC_FILES=true
       - RAILS_ENV=production
+volumes:
+  asset-volume:
