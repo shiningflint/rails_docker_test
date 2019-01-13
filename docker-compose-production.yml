@@ -13,6 +13,7 @@ services:
       - asset-volume:/etc/nginx/html/
   db:
     image: postgres:11-alpine
+    restart: always
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
@@ -25,6 +26,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
+    restart: always
     ports:
       - "3000:3000"
     depends_on:
