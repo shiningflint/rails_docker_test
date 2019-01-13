@@ -5,6 +5,7 @@ RUN mkdir /app \
 WORKDIR /app
 COPY . /app/
 RUN bundle install \
-    && rake assets:precompile
+    && rake assets:precompile \
+    && ln -sf /dev/stdout /app/log/production.log
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

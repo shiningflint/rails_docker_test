@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/web/Dockerfile
+    restart: always
     depends_on:
       - app
     ports:
